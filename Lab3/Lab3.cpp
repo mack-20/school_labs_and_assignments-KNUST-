@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int sum(int);
+long sum(int);
 double cmToFeet(double);
 void generateFibSequence(int limit);
 
@@ -17,6 +17,10 @@ int main(){
 		cout << "1.Calculate sum of first N natural numbers.\n2.Convert height in cm to feet.\n3.Generate Fibonacci sequence to a given number\n4.Quit\n";
 		cout << ">> ";
 		cin >> option;
+		
+		//Clears standard input(one way of doing it) since user can enter 1.08 which would
+		//end the program, if stdin is not flushed to get rid of unwanted data.
+		fflush(stdin);
 
 		switch (option){
 		case 1:
@@ -46,7 +50,7 @@ int main(){
 
 
 //Using recursion, cos why not (:
-int sum(int n){
+long sum(int n){
 	if(n == 1)
 		return 1;
 	else
